@@ -1,12 +1,15 @@
+# import all from tkinter
+# import random to generate numbers
+# import messagebox for pop up messages to the user
 from tkinter import *
 import random
 from tkinter import messagebox
 
 # Create a window
 root = Tk()
-root.geometry("600x500")
+root.geometry("800x700")
 root.title('Lotto App')
-root.configure(background='#3E464A')
+root.configure(background='#140f0f')
 
 
 # function to open this module
@@ -15,11 +18,11 @@ def popup():
 
 
 # Headings & labels on top of the window
-heading = Label(root, text="NOW LET'S PLAY", font='arial 20 bold', fg='white', bg='#3E464A')
-heading.pack(pady=10)
-heading1 = Label(root, text='Please enter your 6 lucky numbers accordingly.', font='arial 13 bold', fg='white',
-                 bg='#3E464A')
+heading = Label(root, text='- BLACK BATS -', font='times 30 bold', fg='#f9f92f', bg='#140f0f')
 heading.pack(pady=20)
+heading1 = Label(root, text='Please enter your 6 lucky numbers accordingly.', font='arial 13 bold', fg='white',
+                 bg='#140f0f')
+heading1.pack(pady=8)
 
 # Entries by Player has to be An Integer
 num1 = IntVar()
@@ -30,21 +33,21 @@ num5 = IntVar()
 num6 = IntVar()
 
 # Frame to place the Entries by Player
-entrie_frame = Frame(root)
+entrie_frame = Frame(root, bg='#140f0f')
 entrie_frame.pack(pady=15)
 
 # Player Entry boxes for predicted numbers
-txt1 = Entry(entrie_frame, textvariable=num1, font='arial 15 bold', width=4)
+txt1 = Entry(entrie_frame, textvariable=num1, font='arial 15 bold', width=4, bg='#f9f92f')
 txt1.pack(side=RIGHT, padx=5, pady=5)
-txt2 = Entry(entrie_frame, textvariable=num2, font='arial 15 bold', width=4)
+txt2 = Entry(entrie_frame, textvariable=num2, font='arial 15 bold', width=4, bg='#f9f92f')
 txt2.pack(side=RIGHT, padx=5, pady=5)
-txt3 = Entry(entrie_frame, textvariable=num3, font='arial 15 bold', width=4)
+txt3 = Entry(entrie_frame, textvariable=num3, font='arial 15 bold', width=4, bg='#f9f92f')
 txt3.pack(side=RIGHT, padx=5, pady=5)
-txt4 = Entry(entrie_frame, textvariable=num4, font='arial 15 bold', width=4)
+txt4 = Entry(entrie_frame, textvariable=num4, font='arial 15 bold', width=4, bg='#f9f92f')
 txt4.pack(side=RIGHT, padx=5, pady=5)
-txt5 = Entry(entrie_frame, textvariable=num5, font='arial 15 bold', width=4)
+txt5 = Entry(entrie_frame, textvariable=num5, font='arial 15 bold', width=4, bg='#f9f92f')
 txt5.pack(side=RIGHT, padx=5, pady=5)
-txt6 = Entry(entrie_frame, textvariable=num6, font='arial 15 bold', width=4)
+txt6 = Entry(entrie_frame, textvariable=num6, font='arial 15 bold', width=4, bg='#f9f92f')
 txt6.pack(side=RIGHT, padx=5, pady=5)
 
 
@@ -72,61 +75,67 @@ def luck():
     # Function to compare Entry numbers with the Generated numbers & display a message
     if len(lotto_nums) == len(my_list):
         same = set(lotto_nums).intersection(set(my_list))
+    # Match the length of numbers entered with the generated
+    # Compare them if they match, how many numbers macth
     if len(same) == 6:
         result_answer.config(
-            text="YOU WON A JACKPOT!!! \n"
-                 + "R10,000 000,00 in Prizes!\n"
-                 + "Lotto Numbers Today are\n"
+            text="- YOU WON A JACKPOT!!! -\n"
+                 + "CONGRATULATIONS !!"
+                 + "WHAT KIND OF MEGA MILLIONAIRE WILL YOU BE???"
+                 + "YOU WON R10,000 000,00 in Prizes!\n"
+                 + "Lotto Numbers Today were\n"
                  + str(lotto_nums))
 
     elif len(same) == 5:
         result_answer.config(
-            text="HATS OFF TO YOU BOSS!!\n"
-                 + "You got 5 numbers correct\n"
-                 + "With this Outstanding Achievement\n"
-                 + "You won yourself R8,584,00\n"
-                 + "Lotto Numbers Today are\n"
+            text="- HATS OFF TO YOU BOSS!! -\n"
+                 + "YOU GOT 5 NUMBERS CORRECT!!\n"
+                 + "THAT'S INSANE BOSSS!!\n"
+                 + "YOU WON R8,584,00\n"
+                 + "Lotto Numbers Were\n"
                  + str(lotto_nums))
 
     elif len(same) == 4:
         result_answer.config(
-            text="Congratulations and BRAVO!!\n"
-                 + "- You got 4 numbers correct -\n"
-                 + "I knew it was only a matter of time. Well done!\n"
-                 + "You won yourself R2,384.00\n"
-                 + "Today Lotto Numbers are\n"
+            text="- CONGRATULATIONS & BRAVO!! -\n"
+                 + "YOU GOT 4 NUMBERS CORRECT!!\n"
+                 + "We knew it was only a matter of time. Well done!\n"
+                 + "YOU WON R2,384.00\n"
+                 + "Lotto Numbers were\n"
                  + str(lotto_nums))
 
     elif len(same) == 3:
         result_answer.config(
-            text="CONGRATS YOU GOT HALF THE NUMBERS!!\n"
-                 + "You got 3 numbers correct\n"
-                 + "With this Substantial Achievement\n"
-                 + "You won R100.50\n"
-                 + "Today Lotto Numbers are\n"
+            text="- CONGRATS YOU GOT HALF THE NUMBERS!! -\n"
+                 + "YOU GOT 3 NUMBERS CORRECT!!\n"
+                 + "With this Achievement\n"
+                 + "YOU WON R100.50\n"
+                 + "Lotto Numbers were\n"
                  + str(lotto_nums))
 
     elif len(same) == 2:
         result_answer.config(
-            text=" CONGRATS!! \n"
-                 + "You got 2 numbers correct\n"
-                 + "With this Adequate Achievement\n"
+            text="- CONGRATS!! -\n"
+                 + "YOU GOT TWO NUMBERS CORRECT\n"
                  + "YOU WON R 20,00 \n"
-                 + "Today Lotto Numbers are\n"
+                 + "Lotto Numbers were\n"
                  + str(lotto_nums))
 
     elif len(same) == 1:
-        messagebox.showinfo("RESULT",
-                            "We are sorry you only got one correct lotto numbers are: "
-                            + str(lotto_nums))
+        result_answer.config(
+            text="- RESULT -\n"
+                 + "WE ARE SORRY YOU GOT ONE NUMBER\n"
+                 + "Lotto numbers were:\n"
+                 + str(lotto_nums))
+
     elif len(same) == 0:
-        messagebox.showinfo("RESULT",
+        messagebox.showinfo("SORRY!",
                             "LIFE ALWAYS OFFERS YOU A SECOND CHANCE.\n"
-                            "IT'S CALLED TOMORROW\n"
-                            "Try again Lotto numbers were: \n"
+                            + "IT'S CALLED TOMORROW\n"
+                            + "Try again Lotto numbers were: \n"
                             + str(lotto_nums))
     else:
-        messagebox.showinfo("NOOO", "Follow the rules")
+        messagebox.showinfo("NO", "Follow the rules")
         num1.delete(0, END)
         num2.delete(0, END)
         num3.delete(0, END)
@@ -136,11 +145,11 @@ def luck():
 
 
 # Button to run the app to generate & compare number by Player with the Generated
-btn = Button(root, text="RUN RESULTS", bg="#f2c831", command=luck)
+btn = Button(root, text="RUN RESULTS", bg="#f9f92f", command=luck)
 btn.pack(pady=15)
 
 # LAbel to display results
-result_answer = Label(root, width=50, height=8)
+result_answer = Label(root, width=50, height=8, bg='#212112', fg='white')
 result_answer.pack(pady=15)
 
 
@@ -149,8 +158,21 @@ def close():
     root.destroy()
 
 
-# Close App
-btn = Button(root, text="Close App", bg="#f2c831", command=close)
-btn.pack()
+# Close App BUTTON
+btn = Button(root, text="Close App", bg="#f9f92f", command=close)
+btn.pack(pady=50)
+
+# Company labels & contacts of the company
+info = Label(root, text="Litha Kane Holdings RF (Proprietary) Limited", font='arial 9 ',
+             fg='white', bg='#140f0f')
+info.pack(pady=5)
+
+info1 = Label(root, text="  Website Terms and Conditions   Games Terms and Conditions  Lotteries Act \n "
+                         "  Previous Operator Results   Legal   FAQ   Retailer Manual  Play Responsibly\n  "
+                         "  Privacy   Historical Draw Results   "
+              , font='arial 7 ',
+              fg='white', bg='#140f0f')
+info1.pack()
+
 # Closing my window
 root.mainloop()
